@@ -1,0 +1,33 @@
+spring:
+  datasource:
+    druid:
+        url: jdbc:mysql://localhost:3306/demo_sys?useUnicode=true&characterEncoding=utf8&useSSL=false&zeroDateTimeBehavior=convertToNull
+        username: root
+        password: rootroot
+        stat-view-servlet:
+            login-username: admin
+            login-password: admin
+            reset-enable: false
+        filter:
+            config:
+                enabled: true
+            stat:
+                enabled: true
+            wall:
+                enabled: true
+            slf4j:
+                enabled: true
+            encoding:
+                enabled: true
+        connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=1500;druid.stat.logSlowSql=true
+        # config.decrypt=true;config.decrypt.key=${brcDruidConfigDecryptKey}
+mybatis-plus:
+    mapper-locations: classpath:com/jj/base/mapper/xml/**/*Dao.xml
+    global-config:
+        id-type: 5
+        field-strategy: 2
+        db-column-underline: true
+        refresh-mapper: true
+    configuration:
+        map-underscore-to-camel-case: true
+      
